@@ -1,0 +1,44 @@
+---
+name: mkbpl - 新建前端脚手架
+route: /commands/mkbpl
+menu: 命令行
+---
+
+# 新建前端脚手架
+
+## 简介
+
+### 新项目初始化创建前端脚手架
+
++ 基于 react 的前端模板react-boilerplate 
+
+## 基本使用
+
+
+```shell
+$ cec-cli mkbpl <projectName> [path]
+```
+
+> 举例：$ cec-cli mkbpl --type react etl-web /Users/luhk/Downloads/
++ --type 或者 -t 已某种模板类型创建 [react|dataVision|electron] 缺省时默认react
++ 最后一个是可选参数，路径参数可以接收绝对路径，相对路径或者不填为空时创建在当前命令执行时所处的位置
+
+### 提示：--type [type] 可以放在mktpl命令之后的任何位置
+
+## 参数
+| 属性名 | 描述 | 必填项
+| :----: | :----: | :----: |
+| `projectName` | 新建项目名称 | 是 |
+| `path` | 新建项目文件夹地址 | 否 |
+| `--type` | 模板类型 | 否 |
+
+## 功能
++ commit-msg 校验
++ 动态路由加载
++ 环境变量配置
++ 基础信息存储
++ 标签页切换
++ 布局模式切换（固定顶部和侧边栏布局、固定头部的上中布局）
++ 请求取消（路由切换时取消请求）
++ 用户登录、登出
++ 用户基本信息存储
