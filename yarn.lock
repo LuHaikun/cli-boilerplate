@@ -914,13 +914,6 @@
   resolved "http://npm.meitu-int.com/@rollup%2frollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.60.3.tgz#cc6f094a3ffe5556bb4a831ee6fb572b8cd81a75"
   integrity sha512-hPt/bgL5cE+Qp+/TPHBqptcAgPzgj46mPcg/16zNUmbQk0j+mOEQV/+Lqu8QRtDV3Ek95Q6FeFITpuhl6OTsAA==
 
-"@types/archiver@^7.0.0":
-  version "7.0.0"
-  resolved "http://npm.meitu-int.com/@types%2farchiver/-/archiver-7.0.0.tgz"
-  integrity sha512-/3vwGwx9n+mCQdYZ2IKGGHEFL30I96UgBlk8EtRDDFQ9uxM1l4O5Ci6r00EMAkiDaTqD9DQ6nVrWRICnBPtzzg==
-  dependencies:
-    "@types/readdir-glob" "*"
-
 "@types/chai@^5.2.2":
   version "5.2.3"
   resolved "http://npm.meitu-int.com/@types%2fchai/-/chai-5.2.3.tgz#8e9cd9e1c3581fa6b341a5aed5588eb285be0b4a"
@@ -959,14 +952,6 @@
     "@types/jsonfile" "*"
     "@types/node" "*"
 
-"@types/inquirer@^9.0.9":
-  version "9.0.9"
-  resolved "http://npm.meitu-int.com/@types%2finquirer/-/inquirer-9.0.9.tgz"
-  integrity sha512-/mWx5136gts2Z2e5izdoRCo46lPp5TMs9R15GTSsgg/XnZyxDWVqoVU3R9lWnccKpqwsJLvRoxbCjoJtZB7DSw==
-  dependencies:
-    "@types/through" "*"
-    rxjs "^7.2.0"
-
 "@types/jsonfile@*":
   version "6.1.4"
   resolved "http://npm.meitu-int.com/@types%2fjsonfile/-/jsonfile-6.1.4.tgz"
@@ -985,32 +970,6 @@
   integrity sha512-W609buLVRVmeW693xKfzHeIV6nJGGz98uCPfeXI1ELMLXVeKYZ9m15fAMSaUPBHYLGFsVRcMmSCksQOrZV9BYA==
   dependencies:
     undici-types "~7.16.0"
-
-"@types/readdir-glob@*":
-  version "1.1.5"
-  resolved "http://npm.meitu-int.com/@types%2freaddir-glob/-/readdir-glob-1.1.5.tgz"
-  integrity sha512-raiuEPUYqXu+nvtY2Pe8s8FEmZ3x5yAH4VkLdihcPdalvsHltomrRC9BzuStrJ9yk06470hS0Crw0f1pXqD+Hg==
-  dependencies:
-    "@types/node" "*"
-
-"@types/through@*":
-  version "0.0.33"
-  resolved "http://npm.meitu-int.com/@types%2fthrough/-/through-0.0.33.tgz"
-  integrity sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==
-  dependencies:
-    "@types/node" "*"
-
-"@types/yargs-parser@*":
-  version "21.0.3"
-  resolved "http://npm.meitu-int.com/@types%2fyargs-parser/-/yargs-parser-21.0.3.tgz"
-  integrity sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==
-
-"@types/yargs@^17.0.35":
-  version "17.0.35"
-  resolved "http://npm.meitu-int.com/@types%2fyargs/-/yargs-17.0.35.tgz"
-  integrity sha512-qUHkeCyQFxMXg79wQfTtfndEC+N9ZZg76HJftDJp+qH2tV7Gj4OJi7l+PiWwJ+pWtW8GwSmqsDj/oymhrTWXjg==
-  dependencies:
-    "@types/yargs-parser" "*"
 
 "@typescript-eslint/eslint-plugin@8.52.0":
   version "8.52.0"
@@ -2816,13 +2775,6 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-rxjs@^7.2.0:
-  version "7.8.2"
-  resolved "http://npm.meitu-int.com/rxjs/-/rxjs-7.8.2.tgz"
-  integrity sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA==
-  dependencies:
-    tslib "^2.1.0"
-
 semver@^7.6.0, semver@^7.7.3:
   version "7.7.3"
   resolved "http://npm.meitu-int.com/semver/-/semver-7.7.3.tgz"
@@ -3072,7 +3024,7 @@ ts-interface-checker@^0.1.9:
   resolved "http://npm.meitu-int.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz"
   integrity sha1-eE/T1nlyK8EDsbS4AwvN212yppk=
 
-tslib@^2.1.0, tslib@^2.8.1:
+tslib@^2.8.1:
   version "2.8.1"
   resolved "http://npm.meitu-int.com/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
