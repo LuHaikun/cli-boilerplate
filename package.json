@@ -7,35 +7,36 @@
   "bin": {
     "oh-my-cli": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "tsx bin/index.ts",
-    "build": "tsup && cp package.json dist/",
+    "dev": "tsx bin/index.ts",
+    "start": "yarn dev",
+    "build": "tsup",
     "start:docs": "cd website && yarn start",
     "build:docs": "cd website && yarn build",
     "deploy:docs": "cd website && yarn deploy",
     "clear:docs": "cd website && yarn clear",
     "serve:docs": "cd website && yarn serve",
     "check": "tsc --noEmit",
-    "push": "npm publish",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "fix": "eslint . --fix && prettier --write .",
+    "prepublishOnly": "yarn check && yarn lint && yarn test && yarn build",
+    "push": "npm publish",
     "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "archiver": "^3.1.1",
-    "camelcase": "^5.3.1",
-    "chalk": "^3.0.0",
+    "chalk": "^5.6.2",
     "clui": "^0.3.6",
-    "commander": "^5.0.0",
-    "cross-spawn": "^7.0.1",
-    "del": "^5.1.0",
-    "fs-extra": "^9.0.0",
-    "inquirer": "^7.1.0",
-    "uuid": "^7.0.2",
-    "yargs": "^15.3.1"
+    "commander": "^13.1.0",
+    "fs-extra": "^11.3.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.0",
@@ -54,8 +55,16 @@
     "prettier": "^3.7.4",
     "pretty-quick": "^4.2.2",
     "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.52.0"
+    "typescript-eslint": "^8.52.0",
+    "vitest": "^3.2.4"
+  },
+  "resolutions": {
+    "vite": "^6.4.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "lint-staged": {
     "*.{js,ts}": [
