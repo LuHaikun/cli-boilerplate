@@ -100,7 +100,7 @@ templates/<name>/
 
 ## Dependency Strategy
 
-- 删除当前未使用依赖：`archiver`、`camelcase`、`cross-spawn`、`del`、`inquirer`、`uuid`、`yargs` 等。
+- 删除当前未使用依赖：`archiver`、`camelcase` 等。
 - 保留并按需升级核心依赖：`commander`、`chalk`、`fs-extra`。
 - 新增测试依赖：`vitest`。
 - 新增开发运行依赖：`tsx`，用于本地 CLI 调试。
