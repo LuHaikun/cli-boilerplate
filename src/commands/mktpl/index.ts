@@ -1,13 +1,13 @@
 import fs from 'fs-extra'
 import type { Command } from 'commander'
-import log from '../../lib/log'
-import path from '../../lib/paths'
-import Spinner from '../../lib/spinner'
-import { isEmpty } from '../../lib/util'
-import getFuncTemplate from '../../templates/component/func'
-import getClassTemplate from '../../templates/component/clazz'
-import getIndexTemplate from '../../templates/component/index'
-import getStyleTemplate from '../../templates/component/style'
+import log from '@/lib/log'
+import path from '@/lib/paths'
+import Spinner from '@/lib/spinner'
+import { isEmpty } from '@/lib/util'
+import getFuncTemplate from '@/templates/component/func'
+import getClassTemplate from '@/templates/component/clazz'
+import getIndexTemplate from '@/templates/component/index'
+import getStyleTemplate from '@/templates/component/style'
 
 const mktpl = (templateName: string, dirPath: string, templateType: string) => {
   log.tip('create template starting')
