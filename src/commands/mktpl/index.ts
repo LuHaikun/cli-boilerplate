@@ -1,12 +1,13 @@
 import fs from 'fs-extra'
-import log from '@/lib/log'
-import path from '@/lib/paths'
-import Spinner from '@/lib/spinner'
-import { isEmpty } from '@/lib/util'
-import getFuncTemplate from '@/templates/component/func'
-import getClassTemplate from '@/templates/component/clazz'
-import getIndexTemplate from '@/templates/component/index'
-import getStyleTemplate from '@/templates/component/style'
+import type { Command } from 'commander'
+import log from '../../lib/log'
+import path from '../../lib/paths'
+import Spinner from '../../lib/spinner'
+import { isEmpty } from '../../lib/util'
+import getFuncTemplate from '../../templates/component/func'
+import getClassTemplate from '../../templates/component/clazz'
+import getIndexTemplate from '../../templates/component/index'
+import getStyleTemplate from '../../templates/component/style'
 
 const mktpl = (templateName: string, dirPath: string, templateType: string) => {
   log.tip('create template starting')
@@ -48,6 +49,17 @@ const createTemplate = (dir: string, name: string, type: string, spinner: Spinne
   fs.writeFileSync(styleFile, getStyleTemplate(name))
   log.success('create template success')
   spinner.stop()
+}
+
+/** Registers the existing mktpl action on the root CLI program. */
+export function registerMktplCommand(program: Command): void {
+  program
+    .command('mktpl <templateName> [dirPath]')
+    .option('-t, --type [type]', 'set component type with optional type')
+    .description('create the dictory for template')
+    .action((templateName, dirPath, options) => {
+      mktpl(templateName, dirPath, options.type)
+    })
 }
 
 export default mktpl

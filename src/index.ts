@@ -1,28 +1,53 @@
-import { createRequire } from 'module'
+import { readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
-import log from '@/lib/log'
-import mktpl from '@/commands/mktpl'
+import { registerMktplCommand } from './commands/mktpl'
+import { isCliError } from './lib/errors'
+import log from './lib/log'
 
-const require = createRequire(import.meta.url)
-const pkg = require('../package.json')
+interface PackageJson {
+  readonly version: string
+  readonly description?: string
+}
 
-const program = new Command().version(pkg.version).on('--help', function () {
-  log.tip('')
-  log.tip('examples:')
-  log.tip('')
-  log.tip('  $ mktpl <templateName> [dirPath]')
-  log.tip('  $ oh-my-cli mktpl Login ./src/views')
-  log.tip('')
-  log.tip('  $ clone <projectName> [dirPath]')
-  log.tip('  $ oh-my-cli clone etl-web /Users/luhk/Downloads/')
-})
+function readPackageJson(): PackageJson {
+  const currentDir = dirname(fileURLToPath(import.meta.url))
+  const packagePath = resolve(currentDir, '../package.json')
 
-program
-  .command('mktpl <templateName> [dirPath]')
-  .option('-t, --type [type]', 'set component type with optional type')
-  .description('create the dictory for template')
-  .action((templateName, dirPath, options) => {
-    mktpl(templateName, dirPath, options.type)
-  })
+  return JSON.parse(readFileSync(packagePath, 'utf8')) as PackageJson
+}
 
-program.parse(process.argv)
+/** Creates the root commander program without parsing argv, making command wiring testable. */
+export function createProgram(): Command {
+  const pkg = readPackageJson()
+  const program = new Command()
+
+  program
+    .name('oh-my-cli')
+    .description(pkg.description ?? 'TypeScript CLI boilerplate')
+    .version(pkg.version)
+    .showHelpAfterError()
+    .showSuggestionAfterError()
+
+  registerMktplCommand(program)
+
+  return program
+}
+
+/** Parses argv and returns an exit code instead of terminating during tests. */
+export async function runCli(argv = process.argv): Promise<number> {
+  const program = createProgram()
+
+  try {
+    await program.parseAsync(argv)
+    return 0
+  } catch (error: unknown) {
+    if (isCliError(error)) {
+      log.error(error.message)
+      return error.exitCode
+    }
+
+    throw error
+  }
+}
