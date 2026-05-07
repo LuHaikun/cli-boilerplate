@@ -1,4 +1,4 @@
-module.exports = function (template) {
+export default function (template: string) {
   return `.${template.toLowerCase()}-wrapper {
   
 }

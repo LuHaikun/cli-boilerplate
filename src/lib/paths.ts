@@ -1,13 +1,14 @@
-const fs = require('fs')
-const path = require('path')
-const { isEmpty } = require('../lib/util')
+import fs from 'fs'
+import path from 'path'
+import { isEmpty } from './util'
+
 const pwd = fs.realpathSync(process.cwd())
 
 const getPath = (dirName = '') => {
   return path.resolve(pwd, dirName)
 }
 
-const getTodoPath = (dirPath, templateName) => {
+const getTodoPath = (dirPath: string, templateName: string) => {
   let templateDir
   if (isEmpty(dirPath)) {
     templateDir = path.resolve(pwd, templateName)
@@ -25,7 +26,7 @@ const PATH_SRC = getPath('src')
 const PATH_DIST = getPath('dist')
 const NODE_MODULES = '/node_modules/'
 
-module.exports = {
+export default {
   src: PATH_SRC,
   dist: PATH_DIST,
   nodeModules: NODE_MODULES,
@@ -34,5 +35,5 @@ module.exports = {
   join: path.join,
   getTodoPath: getTodoPath,
   isAbsolute: path.isAbsolute,
-  resolve: path.resolve
+  resolve: path.resolve,
 }

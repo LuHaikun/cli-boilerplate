@@ -1,0 +1,8 @@
+dist
+build
+*.conf
+*.sh
+*.md
+node_modules
+coverage
+website

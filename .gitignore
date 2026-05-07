@@ -2,8 +2,6 @@
 node_modules
 # idea
 .idea
-# docz
-.docz
 # MacOs
 .DS_Store
 # Compiled binary
@@ -13,6 +11,8 @@ package-lock.json
 # Logs
 logs
 *.log
+.docusaurus
+.claude
 # node-waf configuration
 .lock-wscript
 # Compiled binary addons (http://nodejs.org/api/addons.html)

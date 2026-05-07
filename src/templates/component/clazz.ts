@@ -1,4 +1,4 @@
-module.exports = function (template) {
+export default function (template: string) {
   return `import React, { Component } from 'react'
 
 import style from './style.scss'

@@ -1,4 +1,4 @@
-module.exports = function (template) {
+export default function (template: string) {
   return `import React, { useState, useEffect } from 'react'
 
 import style from './style.scss'

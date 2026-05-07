@@ -1,0 +1,69 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "camelcase": "error",
+    "no-unreachable": "off",
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "@typescript-eslint/no-inferrable-types": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/no-empty-object-type": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "import/order": [
+      "off",
+      {
+        "groups": ["builtin", "external", "internal", "type", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "@/lib/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "@/utils/**",
+            "group": "parent",
+            "position": "after"
+          },
+          {
+            "pattern": "@/constant/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "@/templates/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "max-lines": "off"
+  }
+}

@@ -1,4 +1,9 @@
-export default configs => {
+interface NginxConfig {
+  port: number | string
+  path: string
+}
+
+export default (configs: NginxConfig) => {
   return `
     server {
       listen ${configs.port};

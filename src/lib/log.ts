@@ -5,19 +5,19 @@
  * @email luhaikun@cecdat.com
  * @copyright Copyright 2018 CEC(Fujian) Healthcare Big Data Operation Service Co., Ltd. All rights reserved.
  */
-const chalk = require('chalk')
+import chalk from 'chalk'
 
-module.exports = {
-  success: function (msg) {
+export default {
+  success: function (msg: string) {
     console.log(chalk.green(msg))
   },
-  warning: function (msg) {
+  warning: function (msg: string) {
     console.warn(chalk.yellow(msg))
   },
-  error: function (msg) {
-    console.error(chalk.red(msg))
+  error: function (msg: unknown) {
+    console.error(chalk.red(String(msg)))
   },
-  tip: function (msg) {
+  tip: function (msg: string) {
     console.log(chalk.cyan(msg))
-  }
+  },
 }

@@ -1,4 +1,4 @@
-const isEmpty = (obj) => {
+export const isEmpty = (obj: unknown) => {
   let isEmpty = false
   if (obj === undefined || obj === null || obj === '') {
     isEmpty = true
@@ -16,11 +16,6 @@ const isEmpty = (obj) => {
  * @param str
  * @return {*|string}
  */
-const toBlank = (value, str = '') => {
+export const toBlank = (value: unknown, str = '') => {
   return value || value === 0 ? value + '' : str
-}
-
-module.exports = {
-  isEmpty: isEmpty,
-  toBlank: toBlank
 }
